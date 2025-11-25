@@ -1,7 +1,7 @@
 package com.cinebook.cinebook.dto;
 
 import lombok.*;
-
+//homepage list
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,4 +13,6 @@ public class MovieSummaryDTO {
     private String language;
     private String genre;
     private double duration;
+    private String description;
+
 }

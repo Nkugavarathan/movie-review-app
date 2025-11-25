@@ -1,6 +1,7 @@
 package com.cinebook.cinebook.service.impl;
 
 import com.cinebook.cinebook.dto.MovieDetailDTO;
+import com.cinebook.cinebook.dto.MovieRequestDTO;
 import com.cinebook.cinebook.dto.MovieSummaryDTO;
 import com.cinebook.cinebook.dto.ShowtimeResponseDTO;
 import com.cinebook.cinebook.model.Movie;
@@ -26,6 +27,7 @@ public class MovieServiceImpl implements MovieService {
                 .map(m -> MovieSummaryDTO.builder()
                         .id(m.getId())
                         .title(m.getTitle())
+                        .description(m.getDescription())
                         .posterUrl(m.getPosterUrl())
                         .language(m.getLanguage())
                         .genre(m.getGenre())
@@ -34,6 +36,33 @@ public class MovieServiceImpl implements MovieService {
                 .collect(Collectors.toList());
     }
 
+//    @Override
+//    public MovieDetailDTO getMovieDetail(Long movieId) {
+//        Movie movie = movieRepo.findById(movieId)
+//                .orElseThrow(() -> new RuntimeException("Movie not found"));
+//
+//        List<ShowtimeResponseDTO> showtimes =
+//                showTimeRepo.findByMovieId(movieId).stream()
+//                        .map(st -> ShowtimeResponseDTO.builder()
+//                                .id(st.getId())
+//                                .showDate(st.getShowDate())
+//                                .startTime(st.getStartTime())
+//                                .price(st.getPrice())
+//                                .movieId(movie.getId())
+//                                .screenId(st.getScreen().getId())
+//                                .screenName(st.getScreen().getScreenName())
+//                                .build())
+//                        .collect(Collectors.toList());
+//
+//        return MovieDetailDTO.builder()
+//                .id(movie.getId())
+//                .title(movie.getTitle())
+//                .description(movie.getDescription())
+//                .posterUrl(movie.getPosterUrl())
+//                .trailerUrl(movie.getTrailerUrl())
+//                .showtimes(showtimes)
+//                .build();
+//    }
     @Override
     public MovieDetailDTO getMovieDetail(Long movieId) {
         Movie m = movieRepo.findById(movieId).orElseThrow(() -> new RuntimeException("Movie not found"));
@@ -60,22 +89,58 @@ public class MovieServiceImpl implements MovieService {
                 .build();
     }
 
+//    @Override
+//    public Movie createMovie(Movie movie) {
+//        return movieRepo.save(movie);
+//    }
+//
+//    @Override
+//    public Movie updateMovie(Long id, Movie movie) {
+//        Movie exists = movieRepo.findById(id).orElseThrow(() -> new RuntimeException("Movie not found"));
+//        exists.setTitle(movie.getTitle());
+//        exists.setDescription(movie.getDescription());
+//        exists.setPosterUrl(movie.getPosterUrl());
+//        exists.setTrailerUrl(movie.getTrailerUrl());
+//        exists.setDuration(movie.getDuration());
+//        exists.setGenre(movie.getGenre());
+//        exists.setLanguage(movie.getLanguage());
+//        return movieRepo.save(exists);
+//    }
+//
+//    @Override
+//    public void deleteMovie(Long id) {
+//        movieRepo.deleteById(id);
+//    }
+
     @Override
-    public Movie createMovie(Movie movie) {
+    public Movie createMovie(MovieRequestDTO dto) {
+        Movie movie = Movie.builder()
+                .title(dto.getTitle())
+                .description(dto.getDescription())
+                .posterUrl(dto.getPosterUrl())
+                .trailerUrl(dto.getTrailerUrl())
+                .duration(dto.getDuration())
+                .genre(dto.getGenre())
+                .language(dto.getLanguage())
+                .build();
+
         return movieRepo.save(movie);
     }
 
     @Override
-    public Movie updateMovie(Long id, Movie movie) {
-        Movie exists = movieRepo.findById(id).orElseThrow(() -> new RuntimeException("Movie not found"));
-        exists.setTitle(movie.getTitle());
-        exists.setDescription(movie.getDescription());
-        exists.setPosterUrl(movie.getPosterUrl());
-        exists.setTrailerUrl(movie.getTrailerUrl());
-        exists.setDuration(movie.getDuration());
-        exists.setGenre(movie.getGenre());
-        exists.setLanguage(movie.getLanguage());
-        return movieRepo.save(exists);
+    public Movie updateMovie(Long id, MovieRequestDTO dto) {
+        Movie movie = movieRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Movie not found"));
+
+        movie.setTitle(dto.getTitle());
+        movie.setDescription(dto.getDescription());
+        movie.setPosterUrl(dto.getPosterUrl());
+        movie.setTrailerUrl(dto.getTrailerUrl());
+        movie.setDuration(dto.getDuration());
+        movie.setGenre(dto.getGenre());
+        movie.setLanguage(dto.getLanguage());
+
+        return movieRepo.save(movie);
     }
 
     @Override

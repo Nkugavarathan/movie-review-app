@@ -23,7 +23,7 @@ public class ScreenServiceImpl implements ScreenService {
     public Screen createScreen(Screen screen) {
         Screen saved = screenRepo.save(screen);
 
-        // Optionally seed seats automatically based on rows x columns
+        //  seed seats automatically based on rows x columns
         for (int r = 1; r <= saved.getRows(); r++) {
             for (int c = 1; c <= saved.getColumns(); c++) {
                 Seat seat = Seat.builder()

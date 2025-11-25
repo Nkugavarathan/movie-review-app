@@ -16,18 +16,13 @@ public class TheaterController {
     private final TheaterService theaterService;
 
     @GetMapping
-    public List<Theater> list() {
-        return theaterService.listTheaters();
+    public List<Theater> getAll() {
+        return theaterService.getAllTheaters();
     }
 
     @GetMapping("/{id}")
-    public TheaterDetailDTO get(@PathVariable Long id) {
-        return theaterService.getTheaterDetail(id);
+    public Theater get(@PathVariable Long id) {
+        return theaterService.getTheaterById(id);
     }
 
-    @PostMapping
-    public ResponseEntity<Theater> create(@RequestBody Theater theater) {
-        Theater t = theaterService.createTheater(theater);
-        return ResponseEntity.status(HttpStatus.CREATED).body(t);
-    }
 }

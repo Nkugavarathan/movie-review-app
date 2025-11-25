@@ -24,6 +24,7 @@ public class AuthServiceImpl implements AuthService {
 
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Email already exists");
+
         }
 
         User user = new User();
@@ -36,7 +37,7 @@ public class AuthServiceImpl implements AuthService {
 
         String token = jwtUtil.generateToken(user.getEmail(), user.getRole().name());
 
-        return new AuthResponse(token, user.getName(), user.getRole().name());
+        return new AuthResponse(token, user.getRole().name(),user.getName());
     }
 
     @Override
@@ -51,7 +52,7 @@ public class AuthServiceImpl implements AuthService {
 
         String token = jwtUtil.generateToken(user.getEmail(), user.getRole().name());
 
-//        return new AuthResponse(token, user.getRole().name());
-        return new AuthResponse(token, user.getName(),"fds");
+        return new AuthResponse(token, user.getRole().name(),user.getName());
+//        return new AuthResponse(token, user.getName(),"fds");
     }
 }

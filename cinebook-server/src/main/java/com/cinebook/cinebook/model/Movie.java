@@ -2,6 +2,7 @@ package com.cinebook.cinebook.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.web.ErrorResponse;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Movie {
 
     @Id
@@ -28,6 +30,8 @@ public class Movie {
     private String genre;
     private String language;
 
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-    private List<ShowTime> showTimes;
+
+
+//    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+//    private List<ShowTime> showTimes;
 }

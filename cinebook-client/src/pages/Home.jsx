@@ -17,7 +17,7 @@ function Home() {
       }
     }
     fetchMovie()
-  })
+  }, [])
 
   const movies = [
     {

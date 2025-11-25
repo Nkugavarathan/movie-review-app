@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const MovieCard = ({ movie }) => {
+  console.log("Movies", movie)
   return (
     <div
       className="bg-white rounded-xl shadow-xl overflow-hidden 
@@ -10,7 +11,7 @@ const MovieCard = ({ movie }) => {
     >
       <div className="relative overflow-hidden">
         <img
-          src={movie.poster}
+          src={movie.posterUrl}
           alt={movie.title}
           className="w-full h-72 object-cover 
                      transition duration-500 group-hover:opacity-85"

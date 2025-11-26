@@ -13,7 +13,10 @@ import java.util.List;
 public class MovieController {
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 
 >>>>>>> Stashed changes
     private final MovieService movieService;
@@ -28,6 +31,7 @@ public class MovieController {
     @GetMapping("/{id}")
     public Movie getMovie(@PathVariable Long id) {
         return movieService.getMovieById(id);
+<<<<<<< Updated upstream
     }
 
     // admin create
@@ -48,5 +52,7 @@ public class MovieController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         movieService.deleteMovie(id);
         return ResponseEntity.noContent().build();
+=======
+>>>>>>> Stashed changes
     }
 }

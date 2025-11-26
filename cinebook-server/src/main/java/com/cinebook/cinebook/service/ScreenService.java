@@ -3,12 +3,15 @@ package com.cinebook.cinebook.service;
 import com.cinebook.cinebook.dto.ScreenWithSeatsDTO;
 import com.cinebook.cinebook.model.Screen;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import java.util.List;
 
 public interface ScreenService {
     Screen createScreen(Screen screen);
     List<ScreenWithSeatsDTO> getScreensByTheater(Long theaterId);
 =======
+=======
+>>>>>>> Stashed changes
 import com.cinebook.cinebook.model.Seat;
 import com.cinebook.cinebook.model.Theater;
 import com.cinebook.cinebook.repository.ScreenRepository;

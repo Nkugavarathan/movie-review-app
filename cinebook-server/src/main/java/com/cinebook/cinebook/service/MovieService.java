@@ -8,6 +8,7 @@ import java.util.List;
 public interface MovieService {
     List<MovieSummaryDTO> listAllMovies();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     MovieDetailDTO getMovieDetail(Long movieId);
     Movie createMovie(Movie movie);
     Movie updateMovie(Long id, Movie movie);
@@ -16,6 +17,12 @@ public interface MovieService {
 //    MovieDetailDTO getMovieDetail(Long movieId);
 //List<Movie> getMovieById(Long id);
 
+=======
+
+//    MovieDetailDTO getMovieDetail(Long movieId);
+//List<Movie> getMovieById(Long id);
+
+>>>>>>> Stashed changes
 //    List<Movie> getAllMovies();
     public Movie getMovieById(Long id) ;
     Movie createMovie(MovieRequestDTO dto);

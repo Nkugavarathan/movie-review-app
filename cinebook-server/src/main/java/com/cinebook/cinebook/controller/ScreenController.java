@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ScreenController {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     private final ScreenService screenService;
 
@@ -28,6 +29,8 @@ public class ScreenController {
         return screenService.getScreensByTheater(theaterId);
     }
 =======
+=======
+>>>>>>> Stashed changes
 private final ScreenService screenService;
 //get all
 @GetMapping()
@@ -35,6 +38,9 @@ private final ScreenService screenService;
         return screenService.getAllScreens();
     }
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
 

@@ -1,8 +1,11 @@
 package com.cinebook.cinebook.service.impl;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import com.cinebook.cinebook.dto.MovieDetailDTO;
 =======
+=======
+>>>>>>> Stashed changes
 import com.cinebook.cinebook.dto.MovieRequestDTO;
 >>>>>>> Stashed changes
 import com.cinebook.cinebook.dto.MovieSummaryDTO;
@@ -115,12 +118,44 @@ public class MovieServiceImpl implements MovieService {
 //                .showtimes(showtimes)
 //                .build();
 //    }
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
     @Override
 <<<<<<< Updated upstream
     public Movie createMovie(Movie movie) {
 =======
+    public Movie getMovieById(Long id) {
+        return movieRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Movie not found"));
+    }
+=======
+
+//    @Override
+//    public Movie createMovie(Movie movie) {
+//        return movieRepo.save(movie);
+//    }
+//
+//    @Override
+//    public Movie updateMovie(Long id, Movie movie) {
+//        Movie exists = movieRepo.findById(id).orElseThrow(() -> new RuntimeException("Movie not found"));
+//        exists.setTitle(movie.getTitle());
+//        exists.setDescription(movie.getDescription());
+//        exists.setPosterUrl(movie.getPosterUrl());
+//        exists.setTrailerUrl(movie.getTrailerUrl());
+//        exists.setDuration(movie.getDuration());
+//        exists.setGenre(movie.getGenre());
+//        exists.setLanguage(movie.getLanguage());
+//        return movieRepo.save(exists);
+//    }
+//
+//    @Override
+//    public void deleteMovie(Long id) {
+//        movieRepo.deleteById(id);
+//    }
+
+>>>>>>> Stashed changes
+    @Override
     public Movie getMovieById(Long id) {
         return movieRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Movie not found"));
